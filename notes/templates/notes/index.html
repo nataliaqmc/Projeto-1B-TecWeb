@@ -40,31 +40,31 @@
             {% endfor %}
         </div>
     </form>
-    
-    <form class="form-card" method="POST">
-        {% csrf_token %}
-        <select class="select" name="identificador">
-            <option>Selecione o Post-it para editar:</option>
-            {% for note in notes %}
-            <option value="{{note.id}}">{{note}}</option>
-            {% endfor %}
-        </select>
-        <input
-            class="form-card-title"
-            type="text"
-            name="titulo"
-            placeholder="Novo titulo"
-        />
-        <textarea
-            class="autoresize"
-            name="detalhes"
-            placeholder="Digite o novo conteudo..."
-        ></textarea>
-        
-        <button class="btn" type="submit" formaction="/update">Update Post-it</button>
-        
-    </form>
-    
+    <div class="container-update">
+        <form class="form-card-update" method="POST">
+            {% csrf_token %}
+            <select class="select" name="identificador">
+                <option>Selecione o Post-it para editar:</option>
+                {% for note in notes %}
+                <option value="{{note.id}}">{{note}}</option>
+                {% endfor %}
+            </select>
+            <input
+                class="form-card-title-update"
+                type="text"
+                name="titulo"
+                placeholder="Novo titulo"
+            />
+            <textarea
+                class="autoresize"
+                name="detalhes"
+                placeholder="Digite o novo conteudo..."
+            ></textarea>
+            
+            <button class="btn" type="submit" formaction="/update">Update Post-it</button>
+            
+        </form>
+    </div>
 
 </main>
 <script type="text/javascript" src="{% static 'notes/js/getit.js' %}"></script>

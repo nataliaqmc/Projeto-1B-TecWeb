@@ -6,4 +6,4 @@ class Note(models.Model):
     content = models.TextField()
     def __str__(self):
         #ID.TITULO - RETURN
-        return f'{self.id}. {self.title}'
+        return f'{self.id}.{self.title}'

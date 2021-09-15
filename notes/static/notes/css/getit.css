@@ -96,6 +96,12 @@ img {
 
 
 }
+.container-update{
+  display: flex;
+  margin-left: 70%;
+  width: 70%;
+  justify-content: flex-end;
+}
 
 .card {
   display: flex;
@@ -207,7 +213,9 @@ background-color: #9de0f5;
    margin-left: 33%;
    margin-top: 2rem;
    margin-bottom: 2rem;
+   justify-content: space-evenly;
  }
+ 
  .form-card-title {
    align-items: flex-start;
    font-size: medium;
@@ -215,10 +223,11 @@ background-color: #9de0f5;
    border-width: 0;
    
  }
- 
  .autoresize {
    border-style: solid;
    border-width: 0;
  
  }
+
+
 

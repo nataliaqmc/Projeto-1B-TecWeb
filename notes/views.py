@@ -19,8 +19,13 @@ def update(request):
         content = request.POST.get('detalhes')
         id = request.POST.get('identificador')
         note = Note.objects.get(id=id)
-        note.title = title
-        note.content = content
+        if title == '':
+            note.content = content
+        elif content == '':
+            note.title = title
+        elif title != '' and content != '':
+            note.title = title
+            note.content = content
         note.save()
         return redirect('index')
 

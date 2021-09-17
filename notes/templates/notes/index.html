@@ -23,6 +23,12 @@
             name="detalhes"
             placeholder="Digite o conteudo..."
         ></textarea>
+        <input
+            class="form-card-tag"
+            type="text"
+            name="tag"
+            placeholder="Tag"
+        />
         <button class="btn" type="submit">Criar</button>
     </form>
 
@@ -36,6 +42,9 @@
                     <input value="X" class="x" type="submit" formaction="/delete/{{note.id}}">
                 </div>
                 <p id="detalhes" class="card-content">{{note.content}}</p>
+                <div class="card-tag-container">
+                    <p class="card-tag" id="tag">{{note.tag}}</p>
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -60,7 +69,12 @@
                 name="detalhes"
                 placeholder="Digite o novo conteudo..."
             ></textarea>
-            
+            <input
+                class="form-card-tag"
+                type="text"
+                name="tag"
+                placeholder="Tag"
+            />
             <button class="btn" type="submit" formaction="/update">Update Post-it</button>
             
         </form>

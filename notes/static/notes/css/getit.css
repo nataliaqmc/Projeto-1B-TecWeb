@@ -90,9 +90,7 @@ img {
 
 .container {
  display: flex;
- align-items: stretch;
- flex-direction: row;
- flex-wrap: wrap;
+ flex-direction: column;
  height: 90%;
  width: 100%;
  padding: 0.5rem;
@@ -126,6 +124,13 @@ img {
  font-weight: bold;
 
 }
+.card-tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: white;
+ }
 .x{
   width: 1.5rem;
   justify-content: flex-end;
@@ -232,6 +237,7 @@ background-color: #9de0f5;
    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
    width: 33%;
    margin-left: 33%;
+   margin-right: 33%;
    margin-top: 2rem;
    margin-bottom: 2rem;
    justify-content: space-evenly;
@@ -244,6 +250,11 @@ background-color: #9de0f5;
    border-width: 0;
    
  }
+ .form-card-tag {
+  border-width: 0;
+  padding-bottom: 0.5rem;
+  
+}
  .autoresize {
    border-style: solid;
    border-width: 0;

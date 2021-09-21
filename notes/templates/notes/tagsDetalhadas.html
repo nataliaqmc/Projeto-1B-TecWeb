@@ -10,62 +10,19 @@
     
 </div>  
 <main class="container">
-    <form class="form-card" method="POST">
-        {% csrf_token %}
-        <input
-            class="form-card-title"
-            type="text"
-            name="titulo"
-            placeholder="Titulo"
-        />
-        <textarea
-            class="autoresize"
-            name="detalhes"
-            placeholder="Digite o conteudo..."
-        ></textarea>
-        <button class="btn" type="submit">Criar</button>
-    </form>
-
     <form method="POST">
         {% csrf_token %}
         <div class="card-container">
-            {% for note in notes %}
+            {% for tag in tagsDetalhadas %}
             <div class="card">
                 <div class=card-title-container>
-                    <p class="card-title" id="titulo">{{note.title}}</p>
-                    <input value="X" class="x" type="submit" formaction="/delete/{{note.id}}">
+                    <p class="card-title" id="titulo">{{tag.title}}</p>
                 </div>
-                <p id="detalhes" class="card-content">{{note.content}}</p>
+                <p id="detalhes" class="card-content">{{tag.content}}</p>
             </div>
             {% endfor %}
         </div>
     </form>
-    <div class="container-update">
-        <form class="form-card-update" method="POST">
-            {% csrf_token %}
-            <select class="select" name="identificador">
-                <option>Selecione o Post-it para editar:</option>
-                {% for note in notes %}
-                <option value="{{note.id}}">{{note}}</option>
-                {% endfor %}
-            </select>
-            <input
-                class="form-card-title-update"
-                type="text"
-                name="titulo"
-                placeholder="Novo titulo"
-            />
-            <textarea
-                class="autoresize"
-                name="detalhes"
-                placeholder="Digite o novo conteudo..."
-            ></textarea>
-            
-            <button class="btn" type="submit" formaction="/update">Update Post-it</button>
-            
-        </form>
-    </div>
-
 </main>
 <script type="text/javascript" src="{% static 'notes/js/getit.js' %}"></script>
 {% endblock %}

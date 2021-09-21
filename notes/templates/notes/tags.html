@@ -7,21 +7,26 @@
         <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
         <span class="subtitle">Como o Post-it, mas com outro verbo</span>
     </div>
-    
+    <a href="index.html">
+        <img src="{% static 'notes/img/seta.png' %}" class="tagsbar" />
+    </a>
 </div>  
 <main class="container">
 
     <form method="POST">
         {% csrf_token %}
+        
         <div class="tag-container">
             {% for tag in tags %}
-            <div class="card">
-                <div class=card-tag-container>
-                    <p class="card-title-tag" id="titulo">{{tag.tagTitle}}</p>
+                <div class="card">
+                    <div class=card-tag-container>
+                        <p class="card-title-tag" id="titulo">{{tag.tagTitle}}</p>
+                        <input value="X" class="x" type="submit" formaction="/tagsDetalhadas.html/{{tag.tagTitle}}">
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
+        
     </form>
     
 

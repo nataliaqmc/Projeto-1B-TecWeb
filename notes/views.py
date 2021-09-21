@@ -47,10 +47,18 @@ def delete(request, id):
 def tags(request):
     if request.method == 'POST':
         # TAREFA: Utilize o title e content para criar um novo Note no banco de dados
-        
         TagData.objects.create()
         return redirect('index')
     else:
         all_tags = TagData.objects.all()
         print(all_tags[0])
         return render(request, 'notes/tags.html', {'tags': all_tags})
+
+def tagsDetalhadas(request, tagTitle):
+    print(tagTitle)
+    all_notes = Note.objects.all()
+    tagsDet = []
+    for note in all_notes:
+        if str(note.tagContent) == str(tagTitle):
+            tagsDet.append(note)
+    return render(request, 'notes/tagsDetalhadas.html', {'tagsDetalhadas': tagsDet})

@@ -44,23 +44,23 @@ def delete(request, id):
         tag = note.tagContent
         note.delete()
         print(tag)
-        try:
-            Note.objects.get(tagContent=tag)
-        except:
-            t = TagData.objects.get(tagTitle=tag)
-            t.delete()
-
+        t = Note.objects.filter(tagContent__tagTitle=tag)
+        if len(t)==0:
+            tg = TagData.objects.get(tagTitle=tag)  
+            tg.delete()          
     return redirect('index')
     
 def tags(request):
     all_tags = TagData.objects.all()
-    return render(request, 'notes/tags.html', {'tags': all_tags})
+    all_tags_except = []
+    for t in all_tags:
+        if str(t) == '':
+            pass
+        else:
+            all_tags_except.append(t)
+    return render(request, 'notes/tags.html', {'tags': all_tags_except})
 
 def tagsDetalhadas(request, tagTitle):
     print(tagTitle)
-    all_notes = Note.objects.all()
-    tagsDet = []
-    for note in all_notes:
-        if str(note.tagContent) == str(tagTitle):
-            tagsDet.append(note)
-    return render(request, 'notes/tagsDetalhadas.html', {'tagsDetalhadas': tagsDet})
+    all_tags_detalhadas = Note.objects.filter(tagContent__tagTitle=tagTitle)
+    return render(request, 'notes/tagsDetalhadas.html', {'tagsDetalhadas': all_tags_detalhadas})

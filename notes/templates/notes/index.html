@@ -55,7 +55,7 @@
             <select class="select" name="identificador">
                 <option>Selecione o Post-it para editar:</option>
                 {% for note in notes %}
-                <option value="{{note.id}}">{{note}}</option>
+                <option value="{{note.id}}">{{note.title}}</option>
                 {% endfor %}
             </select>
             <input

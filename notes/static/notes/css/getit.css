@@ -72,6 +72,14 @@ img {
   justify-self: center;
 }
 
+.tagsbar{
+  font-weight: bold;
+  color: #2c2c2c;
+  align-self: center;
+  padding-right: 2rem;
+  text-decoration: none;
+}
+
 .subtitle {
   align-self: center;
   justify-content: center;
@@ -115,6 +123,20 @@ img {
  border-radius: 0.3rem;
  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); 
 }
+.card-tag-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 3rem;
+}
+.tag-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+ }
 .card-title-container{
   display: flex;
   flex-direction: row;
@@ -124,6 +146,11 @@ img {
  font-weight: bold;
 
 }
+.card-title-tag {
+  font-weight: bold;
+  align-self: center;
+ 
+ }
 .card-tag {
   display: flex;
   flex-direction: column;

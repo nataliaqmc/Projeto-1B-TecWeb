@@ -7,8 +7,12 @@ def index(request):
         title = request.POST.get('titulo')
         content = request.POST.get('detalhes')
         tag = request.POST.get('tag')
+        listT = TagData.objects.all()
+        print(listT)
+        if not tag in listT:
+            TagData.objects.create(tagTitle=tag)
         # TAREFA: Utilize o title e content para criar um novo Note no banco de dados
-        Note.objects.create(title=title, content=content, tagContent=tag)
+        Note.objects.create(title=title, content=content, tagContent=TagData.objects.get(tagTitle=tag))
         return redirect('index')
     else:
         all_notes = Note.objects.all()
@@ -21,12 +25,16 @@ def update(request):
         tag = request.POST.get('tag')
         id = request.POST.get('identificador')
         note = Note.objects.get(id=id)
+        listT = TagData.objects.all()
+        print(listT)
+        if not tag in listT:
+            TagData.objects.create(tagTitle=tag)
         if title != '':
             note.title = title
         if content != '':
             note.content = content
         if tag != '':
-            note.tagContent = tag
+            note.tagContent = TagData.objects.get(tagTitle=tag)
         note.save()
         return redirect('index')
 

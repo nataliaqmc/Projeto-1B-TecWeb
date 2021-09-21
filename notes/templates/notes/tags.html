@@ -13,12 +13,11 @@
 
     <form method="POST">
         {% csrf_token %}
-        <div class="card-container">
+        <div class="tag-container">
             {% for tag in tags %}
             <div class="card">
-                <div class=card-title-container>
-                    <p class="card-title" id="titulo">{{tag.tagTitle}}</p>
-                    <input value="X" class="x" type="submit" formaction="/delete/{{note.id}}">
+                <div class=card-tag-container>
+                    <p class="card-title-tag" id="titulo">{{tag.tagTitle}}</p>
                 </div>
             </div>
             {% endfor %}

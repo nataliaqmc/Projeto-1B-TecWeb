@@ -7,6 +7,9 @@
         <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
         <span class="subtitle">Como o Post-it, mas com outro verbo</span>
     </div>
+    <a href="notes/tags.html">
+        <div>Tags</div>
+    </a>
     
 </div>  
 <main class="container">
@@ -43,7 +46,7 @@
                 </div>
                 <p id="detalhes" class="card-content">{{note.content}}</p>
                 <div class="card-tag-container">
-                    <p class="card-tag" id="tag">{{note.tag}}</p>
+                    <p class="card-tag" id="tag">{{note.tagContent}}</p>
                 </div>
             </div>
             {% endfor %}

@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('update', views.update),
     path('delete/<int:id>', views.delete),  
+    path('notes/tags.html', views.tags)
 ]

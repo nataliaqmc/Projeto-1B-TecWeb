@@ -41,12 +41,19 @@ def update(request):
 def delete(request, id):
     if request.method == 'POST':
         note = Note.objects.get(id=id)
+        tag = note.tagContent
         note.delete()
+        print(tag)
+        try:
+            Note.objects.get(tagContent=tag)
+        except:
+            t = TagData.objects.get(tagTitle=tag)
+            t.delete()
+
     return redirect('index')
     
 def tags(request):
     all_tags = TagData.objects.all()
-    print(all_tags[0])
     return render(request, 'notes/tags.html', {'tags': all_tags})
 
 def tagsDetalhadas(request, tagTitle):

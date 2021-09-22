@@ -1,0 +1,36 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="appbar">
+    <div class="barra">
+        <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+        <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+    </div>
+    <a class="tagsbar" href="../index.html">
+        <img src="{% static 'notes/img/seta.png' %}" class="tagsbar" />
+    </a>
+</div>  
+<main class="container">
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="tag-container">
+            {% for tag in tags %}
+            <a class="tagsbar" href="/tagsDetalhadas.html/{{tag.tagTitle}}">
+                <div class="card">
+                    <div class=card-tag-container-tags>
+                        <p class="card-title-tag" id="titulo">{{tag.tagTitle}}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        
+    </form>
+    
+
+</main>
+<script type="text/javascript" src="{% static 'notes/js/getit.js' %}"></script>
+{% endblock %}

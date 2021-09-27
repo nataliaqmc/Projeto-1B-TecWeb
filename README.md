@@ -1,7 +1,7 @@
 # Projeto 1B - TecWeb:
 #### Natália Queiroz Menezes Carreras
 
-#### Link da página: https://evening-stream-52276.herokuapp.com/
+#### Link da página: Página não publicada.
 #### Funcionalidades:
   - Para adicionar um novo Post-it, basta inserir as informações e presssionar o botão "Criar".
   - Para apagar um Post-it, basta clicar no "x" que está no próprio cartão.

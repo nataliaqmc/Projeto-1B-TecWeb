@@ -25,6 +25,7 @@ def update(request):
         tag = request.POST.get('tag')
         id = request.POST.get('identificador')
         note = Note.objects.get(id=id)
+        t = note.tagContent
         listT = TagData.objects.all()
         print(listT)
         if not tag in listT:
@@ -35,6 +36,7 @@ def update(request):
             note.content = content
         if tag != '':
             note.tagContent = TagData.objects.get(tagTitle=tag)
+            delete(request, id)
         note.save()
         return redirect('index')
 

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*q-dytcca_+-6+ttc%!8igvy@fczz=dvng7(y-1k4_bpl@+47e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['evening-stream-52276.herokuapp.com','localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
